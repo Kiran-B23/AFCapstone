@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: advisoriq
+    runtime: python
+    # models/ and chroma_store/ are gitignored, so the deploy must build them.
+    buildCommand: |
+      pip install -r requirements.txt
+      python checker.py
+      python rag.py
+    startCommand: python app.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3
+      - key: GOOGLE_API_KEY
+        sync: false        # set this in the Render dashboard; never commit it

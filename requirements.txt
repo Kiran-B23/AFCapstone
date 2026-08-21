@@ -6,6 +6,7 @@
 
 # --- UI (app.py) ---
 gradio==6.25.0
+python-dotenv==1.2.3                  # loads .env for local dev
 
 # --- LangChain core stack (agent.py, rag.py) ---
 langchain==1.3.16
@@ -16,6 +17,12 @@ langchain-text-splitters==1.1.2       # RecursiveCharacterTextSplitter
 
 # --- LLM provider (agent.py) ---
 langchain-google-genai==4.3.5         # needs GOOGLE_API_KEY or GEMINI_API_KEY
+
+# --- CPU-only torch ---
+# sentence-transformers pulls torch. The default PyPI wheel bundles ~2.7 GB of NVIDIA
+# CUDA packages that a CPU-only deploy (Render, most PaaS) can never use.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.13.0+cpu
 
 # --- Retrieval / vector store (rag.py) ---
 langchain-chroma==1.1.0

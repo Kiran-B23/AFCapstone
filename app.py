@@ -1,3 +1,8 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()   # local dev: read GOOGLE_API_KEY from .env (Render injects it as an env var)
+
 import gradio as gr, shutil
 from guardrails import redact_pii, make_safe
 from agent import agent, retriever
@@ -25,4 +30,5 @@ demo = gr.Interface(
 )
 
 if __name__ == "__main__":
-    demo.launch()
+    # Render (and most PaaS) inject the port to bind; 0.0.0.0 makes it externally reachable.
+    demo.launch(server_name="0.0.0.0", server_port=int(os.environ.get("PORT", 7860)))
