@@ -1,0 +1,5 @@
+Signs of suspicious transactions.
+Common red flags include unusually large amounts, transactions in foreign countries you did
+not visit, purchases at odd hours, high-risk merchants (gift cards, crypto, wire transfers),
+and rapid repeated charges. If several red flags appear together, the transaction is more
+likely to be fraudulent and should be reviewed.

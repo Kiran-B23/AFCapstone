@@ -1,0 +1,5 @@
+Risk and volatility.
+Volatility measures how much a price moves up and down over time. Higher volatility means
+larger swings and higher risk. Diversification, a long time horizon, and position sizing
+are common ways to manage risk. Never invest money you cannot afford to lose. There is no
+such thing as a guaranteed return in the stock market.

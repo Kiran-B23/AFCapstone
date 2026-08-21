@@ -1,0 +1,19 @@
+# Virtualenv
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Secrets
+.env
+.env.*
+
+# Generated artifacts (rebuild with: python checker.py, python rag.py)
+models/
+chroma_store/
+
+# Per-request upload staged by app.py
+data/_current_upload.csv

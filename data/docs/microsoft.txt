@@ -1,0 +1,5 @@
+Microsoft Corp (MSFT) overview.
+Microsoft's revenue comes from productivity software (Office/Microsoft 365), cloud
+infrastructure (Azure), Windows, and gaming. Azure growth and enterprise cloud adoption
+are the most-watched drivers. Risks include cloud competition and large capital spending
+on data centers. Recurring subscription revenue makes results relatively stable.
