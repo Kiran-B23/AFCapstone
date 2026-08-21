@@ -1,11 +1,42 @@
-langchain
-langchain-google-genai
-langchain-community
-chromadb
-sentence-transformers
-yfinance
-scikit-learn
-pandas
-ragas
-langsmith
-gradio
+# AdvisorIQ - pinned to the versions this project was built and verified against.
+# Exact pins are deliberate: LangChain 1.x relocated several imports, and an
+# unpinned install silently breaks agent.py.
+#   python -m venv .venv && source .venv/bin/activate
+#   pip install -r requirements.txt
+
+# --- UI (app.py) ---
+gradio==6.25.0
+
+# --- LangChain core stack (agent.py, rag.py) ---
+langchain==1.3.16
+langchain-core==1.6.0                 # Tool
+langchain-classic==1.0.8              # initialize_agent, AgentType (removed from langchain 1.x)
+langchain-community==0.4.2            # DirectoryLoader, TextLoader
+langchain-text-splitters==1.1.2       # RecursiveCharacterTextSplitter
+
+# --- LLM provider (agent.py) ---
+langchain-google-genai==4.3.5         # needs GOOGLE_API_KEY or GEMINI_API_KEY
+
+# --- Retrieval / vector store (rag.py) ---
+langchain-chroma==1.1.0
+chromadb==1.5.9
+langchain-huggingface==1.2.2
+sentence-transformers==6.0.0          # backs all-MiniLM-L6-v2 embeddings
+
+# --- Transaction checker (checker.py) ---
+scikit-learn==1.9.0
+joblib==1.5.3                         # model persistence to models/checker.joblib
+pandas==3.0.5
+
+# --- Market data tool (agent.py) ---
+yfinance==1.6.0
+
+# --- Tracing ---
+langsmith==0.11.1
+
+# --- Evaluation (evaluate.py) ---
+# KNOWN ISSUE: ragas 0.4.3 (latest) imports langchain_community.chat_models.vertexai,
+# which langchain-community 0.4.2 removed, so `import ragas` currently fails.
+# evaluate.py will not run until this is resolved upstream. Everything above is unaffected.
+ragas==0.4.3
+datasets==5.0.1
